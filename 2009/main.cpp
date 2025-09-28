@@ -25,34 +25,35 @@
 #define FAILURE 0
 
 struct  LNode {
-    int data;
+    int data = 0;
     struct LNode* link = nullptr;
 };
 
 using  LINKLIST = LNode*;
 
 void AddNode(LINKLIST &link_list, std::vector<int> values) {
+    if (link_list == nullptr) {
+        link_list = new LNode{.data = 0, .link = nullptr};
+    }
+
+    LINKLIST temp_list = link_list;
     for (int value : values) {
         LINKLIST new_node = new LNode{
             .data = value,
             .link = nullptr
         };
-        if (link_list == nullptr) {
-            link_list = new LNode{
-                .link = new_node
-            };
+
+        while (temp_list->link != nullptr) {
+            temp_list = temp_list->link;
         }
-        else {
-            LINKLIST temp_list = link_list;
-            while (temp_list->link != nullptr) {
-                temp_list = temp_list->link;
-            }
-            temp_list->link = new_node;
-        }
+        temp_list->link = new_node;
     }
 }
 
 int FindNthFromEnd(LINKLIST linklist, int n_th) {
+    if (n_th <= 0) {
+        return FAILURE;
+    }
     LINKLIST pNode = linklist->link;
     LINKLIST qNode = linklist->link;
     int count = 0;
@@ -74,7 +75,7 @@ int FindNthFromEnd(LINKLIST linklist, int n_th) {
 
 int main() {
     LINKLIST NodeList = nullptr;
-    int key = 6;
+    int key = 7;
     std::vector<int> values{
         1,2,3,4,5,6
     };
