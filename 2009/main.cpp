@@ -38,7 +38,9 @@ void AddNode(LINKLIST &link_list, std::vector<int> values) {
             .link = nullptr
         };
         if (link_list == nullptr) {
-            link_list = new_node;
+            link_list = new LNode{
+                .link = new_node
+            };
         }
         else {
             LINKLIST temp_list = link_list;
@@ -51,8 +53,8 @@ void AddNode(LINKLIST &link_list, std::vector<int> values) {
 }
 
 int FindNthFromEnd(LINKLIST linklist, int n_th) {
-    LINKLIST pNode = linklist;
-    LINKLIST qNode = linklist;
+    LINKLIST pNode = linklist->link;
+    LINKLIST qNode = linklist->link;
     int count = 0;
     while (pNode != nullptr) {
         if (count < n_th) {
