@@ -1,9 +1,3 @@
-cmake_minimum_required(VERSION 4.0)
-project(408-All)
-
-set(CMAKE_CXX_STANDARD 20)
-
-# 添加子项目
 file(GLOB children RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/*)
 
 foreach(child ${children})
