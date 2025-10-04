@@ -15,5 +15,7 @@ void ShellSort(int arr[], int length);
 
 void BubbleSort(int arr[], int size);
 
+void QuickSort(int arr[], int size);
+
 #endif //INC_408_ALL_SORT_H
 

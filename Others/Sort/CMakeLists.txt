@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Sort main.cpp
         Sort.h
-        BubbleSort.cpp
+        ExchangeSort.cpp
         InsertSort.cpp)

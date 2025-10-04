@@ -11,7 +11,7 @@ void PrintArray(int arr[], int length) {
 
 int main() {
     int arr[12] = {7, 3, 10, 2, 6, 9, 4, 12, 1, 5, 8, 11};
-    ShellSort(arr, 12);
+    QuickSort(arr, 12);
     PrintArray(arr, 12);
     return 0;
 }
